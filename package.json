@@ -10,13 +10,16 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "autoprefixer": "^10.3.4",
         "axios": "^0.21",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14",
+        "mix-tailwindcss": "^1.3.0",
+        "postcss": "^8.3.6",
         "prettier": "^2.4.0",
         "prettier-plugin-svelte": "^2.4.0",
-        "svelte-loader": "^3.1.2"
+        "svelte-loader": "^3.1.2",
+        "tailwindcss": "^2.2.15"
     },
     "dependencies": {
         "@inertiajs/inertia": "^0.10.1",

@@ -1,7 +1,8 @@
-const mix = require("laravel-mix");
+const mix = require('laravel-mix')
+const path = require('path')
 
-require("laravel-mix-svelte");
-
+require('laravel-mix-svelte')
+require('mix-tailwindcss')
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -13,8 +14,18 @@ require("laravel-mix-svelte");
  |
  */
 
-mix.js("resources/js/app.js", "public/js")
-    .postCss("resources/css/app.css", "public/css", [
-        //
-    ])
-    .svelte({ dev: true });
+mix
+  .js('resources/js/app.js', 'public/js')
+  .postCss('resources/css/app.css', 'public/css', [
+    //
+  ])
+  .tailwind()
+  .disableNotifications()
+  .svelte({ dev: !mix.inProduction() })
+  .webpackConfig({
+    resolve: {
+      alias: {
+        '@': path.resolve('resources/js'),
+      },
+    },
+  })
