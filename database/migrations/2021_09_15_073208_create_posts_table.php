@@ -12,7 +12,7 @@ class CreatePostsTable extends Migration {
      */
     public function up() {
         Schema::create('posts', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->primary();
             $table->string('title', 64);
             $table->string('slug', 64);
             $table->text('content');

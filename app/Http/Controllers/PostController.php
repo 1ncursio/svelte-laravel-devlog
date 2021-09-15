@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class PostController extends Controller {
     /**
@@ -12,9 +14,11 @@ class PostController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
+        $posts = Post::paginate(15);
+        $out = new ConsoleOutput();
+        $out->writeln($posts);
         return Inertia::render('posts/index', [
-            'test' => '무야호',
+            'posts' => $posts,
         ]);
     }
 

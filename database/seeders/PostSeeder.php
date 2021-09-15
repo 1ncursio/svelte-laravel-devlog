@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Post;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Faker\Generator as Faker;
 
 class PostSeeder extends Seeder {
     /**
@@ -13,12 +12,8 @@ class PostSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        DB::table('posts')->insert([
-            'title' => '',
-            'slug' => '',
-            'content' => '',
-            'access_level' => ['public', 'private', 'unlisted'],
-            'thumbnail' => '',
-        ]);
+        Post::factory()
+            ->count(50)
+            ->create();
     }
 }
