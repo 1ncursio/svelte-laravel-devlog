@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return Inertia::render('index');
+})->name('index');
 
-Route::get('posts')->name('posts')->uses('PostController@index');
+Route::get('posts')->name('posts.index')->uses('PostController@index');
