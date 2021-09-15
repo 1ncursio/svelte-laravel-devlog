@@ -13,10 +13,14 @@ onMount(() => {
 
 <Layout>
   posts
-  {#each posts as post (post.id)}
-    <InertiaLink href="{route('posts.index', { id: post.id })}">
-      {post.title}
-      <img src="{post.thumbnail}" alt="" />
-    </InertiaLink>
-  {/each}
+  <div class="grid grid-cols-3 gap-4 ">
+    {#each posts as post (post.id)}
+      <article class="w-80">
+        <InertiaLink href="{route('posts.index', { id: post.id })}">
+          {post.title}
+          <img src="{post.thumbnail}" alt="" class="w-80 h-80" />
+        </InertiaLink>
+      </article>
+    {/each}
+  </div>
 </Layout>

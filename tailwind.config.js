@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   purge: [
     './resources/**/*.blade.php',
@@ -11,5 +13,33 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities, addComponents, e, prefix, config }) {
+      const container = {
+        '.main-container': {
+          width: '1024px',
+        },
+
+        '@media (min-width: 640px)': {
+          '.main-container': {
+            'max-width': '640px',
+          },
+        },
+
+        '@media (min-width: 768px)': {
+          '.main-container': {
+            'max-width': '768px',
+          },
+        },
+
+        '@media (min-width: 1024px)': {
+          '.main-container': {
+            'max-width': '1024px',
+          },
+        },
+      }
+
+      addComponents(container)
+    }),
+  ],
 }
