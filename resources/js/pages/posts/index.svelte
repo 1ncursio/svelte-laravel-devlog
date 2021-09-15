@@ -1,7 +1,7 @@
 <script>
- let a = 10;
+let a = 10
 </script>
 
 <body>
-    왜 안됨
+  왜 {a} 안됨
 </body>
