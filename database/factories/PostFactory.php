@@ -22,8 +22,8 @@ class PostFactory extends Factory {
         $title = $this->faker->sentence(3);
         return [
             'title' => $title,
-            'slug' => preg_replace('/\s/', '-', $title),
-            'content' => $this->faker->paragraph(),
+            'slug' => preg_replace('/\./', '', preg_replace('/\s/', '-', $title)),
+            'content' => $this->faker->realText(),
             'access_level' => 'public',
             'thumbnail' => $this->faker->imageUrl(320, 320),
         ];
