@@ -1,19 +1,22 @@
 <script>
 import { onMount } from 'svelte'
 import Layout from '@/pages/_layout.svelte'
-import { InertiaLink } from '@inertiajs/inertia-svelte'
+import { InertiaLink, page } from '@inertiajs/inertia-svelte'
+
 const route = window.route
-let posts = []
+let { data: posts } = $page.props.posts
+
 onMount(() => {
-  console.log('mounted!')
+  console.log({ posts })
 })
 </script>
 
 <Layout>
   posts
-  {#each posts as post}
-    <InertiaLink href="{route('posts.index', post.id)}">
+  {#each posts as post (post.id)}
+    <InertiaLink href="{route('posts.index', { id: post.id })}">
       {post.title}
+      <img src="{post.thumbnail}" alt="" />
     </InertiaLink>
   {/each}
 </Layout>
