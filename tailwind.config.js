@@ -14,10 +14,12 @@ module.exports = {
     extend: {},
   },
   plugins: [
+    require('@tailwindcss/line-clamp'),
     plugin(function ({ addUtilities, addComponents, e, prefix, config }) {
       const container = {
         '.main-container': {
-          width: '1024px',
+          width: 'calc(100% - 2rem)',
+          margin: '0 auto',
         },
 
         '@media (min-width: 640px)': {
@@ -39,7 +41,14 @@ module.exports = {
         },
       }
 
+      const fontRaleway = {
+        '.font-raleway': {
+          'font-family': '"Raleway", sans-serif',
+        },
+      }
+
       addComponents(container)
+      addComponents(fontRaleway)
     }),
   ],
 }

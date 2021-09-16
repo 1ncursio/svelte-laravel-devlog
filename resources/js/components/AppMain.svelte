@@ -1,1 +1,1 @@
-<main class="main-container mx-auto"><slot /></main>
+<main class="main-container"><slot /></main>
