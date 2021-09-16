@@ -12,9 +12,8 @@ class CreatePostsTable extends Migration {
      */
     public function up() {
         Schema::create('posts', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->string('slug', 64)->primary();
             $table->string('title', 64);
-            $table->string('slug', 64);
             $table->text('content');
             $table->enum('access_level', ['public', 'private', 'unlisted']);
             $table->string('thumbnail', 255)->nullable();

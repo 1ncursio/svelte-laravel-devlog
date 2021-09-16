@@ -49,7 +49,8 @@ class PostController extends Controller {
      */
     public function show($slug) {
         //
-        dump($slug);
+        $post = Post::find($slug);
+        dump($post);
     }
 
     /**

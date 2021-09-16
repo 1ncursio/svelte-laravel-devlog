@@ -21,7 +21,7 @@ onMount(() => {
   </div>
   <div class="container">
     <div class="flex flex-wrap -mx-1 lg:-mx-4">
-      {#each posts as post (post.id)}
+      {#each posts as post (post.slug)}
         <!-- Column -->
         <div class="my-2 px-2 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
           <!-- Article -->
