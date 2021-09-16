@@ -3,6 +3,9 @@ import { onMount } from 'svelte'
 import Layout from '@/pages/_layout.svelte'
 import { InertiaLink, page } from '@inertiajs/inertia-svelte'
 import dayjs from 'dayjs'
+import 'dayjs/locale/ko'
+
+dayjs.locale('ko')
 
 const route = window.route
 let { data: posts } = $page.props.posts
@@ -23,7 +26,7 @@ onMount(() => {
         <div class="my-2 px-2 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
           <!-- Article -->
           <article class="overflow-hidden">
-            <InertiaLink href="{route('posts.index', { id: post.id })}">
+            <InertiaLink href="{route('posts.show', { slug: post.slug })}">
               <img
                 alt="Placeholder"
                 class="block h-auto w-full"
@@ -33,7 +36,7 @@ onMount(() => {
             <header class="leading-tight p-1 md:p-2">
               <h1 class="text-xl mb-2">
                 <InertiaLink
-                  href="{route('posts.index', { id: post.id })}"
+                  href="{route('posts.show', { slug: post.slug })}"
                   class="text-black">
                   {post.title}
                 </InertiaLink>

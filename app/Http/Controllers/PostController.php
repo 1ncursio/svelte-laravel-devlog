@@ -14,7 +14,7 @@ class PostController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $posts = Post::paginate(15);
+        $posts = Post::paginate(12);
         $out = new ConsoleOutput();
         $out->writeln($posts);
         return Inertia::render('posts/index', [
@@ -47,8 +47,9 @@ class PostController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show($slug) {
         //
+        dump($slug);
     }
 
     /**
